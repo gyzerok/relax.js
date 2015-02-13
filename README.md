@@ -100,4 +100,5 @@ SomeStore.offChange(storeDidChange);
 
 ## Release history
 
+* **0.1.1**: First working release
 * **0.1.0**: Initial release
