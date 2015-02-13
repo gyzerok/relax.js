@@ -441,7 +441,7 @@ var Relax = {
     createStore: function (opts) {
         opts = opts || {};
 
-        var Store = assign({}, EventEmitter.prototype, {
+        var Store = assign(new EventEmitter, {
 
             /**
              * Triggers change event for the store.
