@@ -346,7 +346,9 @@ module.exports = Object.assign || function (target, source) {
 };
 
 },{}],5:[function(require,module,exports){
-'use strict';
+/**
+ * This source code was originally copied from https://gist.github.com/mudge/5830382
+ */
 
 /* Polyfill indexOf. */
 var indexOf;
@@ -411,8 +413,12 @@ EventEmitter.prototype.emit = function (event) {
     }
 };
 },{}],6:[function(require,module,exports){
-/**
- * Relax is a simple implementation of Flux pattern
+/*
+ * Copyright (c) 2014, Fedor Nezhivoy
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 (function () {
@@ -425,15 +431,6 @@ EventEmitter.prototype.emit = function (event) {
     var CHANGE_EVENT = 'relax:change';
 
     var Relax = {
-
-        /**
-         * Generates new simple uid.
-         *
-         * @returns {string}
-         */
-        uid: function () {
-            return (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-        },
 
         /**
          * Creates new singleton store.

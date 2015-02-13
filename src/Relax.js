@@ -18,15 +18,6 @@
     var Relax = {
 
         /**
-         * Generates new simple uid.
-         *
-         * @returns {string}
-         */
-        uid: function () {
-            return (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-        },
-
-        /**
          * Creates new singleton store.
          *
          * @param {object} opts
