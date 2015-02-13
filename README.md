@@ -20,7 +20,7 @@ module.exports = Relax.createDispatcher();
 
 Then simple Store with just one action.
 
-**Note:** The return value for an action must be a boolean value which indicates should the Store emits change event or not.
+**Note:** The return value for an data modification function have to be a boolean value which indicates should the Store emits change event or not.
 ```javascript
 // SomeStore.js
 
