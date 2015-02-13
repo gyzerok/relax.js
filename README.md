@@ -9,6 +9,8 @@ It is highly recommended to use it with the Facebook [Immutable](https://github.
 
     npm install relax.js --save
 
+    bower install relax.js --save
+
 ## Usage
 
 First of all let's create a simple Dispatcher.
