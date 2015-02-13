@@ -1,25 +1,29 @@
 {
   "name": "relax.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A small imlementation Flux pattern",
   "keywords": [
-    "flux"
+    "flux",
+    "framework"
   ],
   "author": {
     "name": "Fedor Nezhivoy",
     "email": "gyzerok@gmail.com",
     "url": "https://github.com/gyzerok"
   },
-  "homepage": "",
+  "homepage": "https://github.com/gyzerok/relax.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/gyzerok/relax.js"
   },
   "main": "dist/Relax.js",
   "scripts": {
     "test": "jest"
   },
-  "license": "MIT",
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/gyzerok/relax.js/blob/master/LICENSE"
+  },
   "dependencies": {
     "flux": "^2.0.1",
     "object-assign": "^2.0.0"
