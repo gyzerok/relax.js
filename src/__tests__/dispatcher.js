@@ -10,7 +10,7 @@ jest.autoMockOff();
 __DEV__ = true;
 
 describe('Dispatcher', function () {
-    var Relax = require('../Relax');
+    var Relax = require('../../dist/Relax');
     var Dispatcher;
 
     var StoreA;

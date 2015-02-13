@@ -1,6 +1,6 @@
 {
   "name": "relax.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An imlementation of the Flux pattern",
   "keywords": [
     "flux",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/gyzerok/relax.js"
   },
-  "main": "src/Relax.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
@@ -35,6 +35,7 @@
     "grunt-browserify": "^3.3.0",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-uglify": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
     "include-all": "^0.1.6",
