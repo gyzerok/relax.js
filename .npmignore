@@ -1,7 +1,9 @@
 Gruntfile
 .npmignore
+.gitignore
 README.md
 CHANGELOG.md
+bower.json
 tasks
 dist
 src
