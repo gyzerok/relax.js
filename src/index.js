@@ -6,7 +6,7 @@
     'use strict';
 
     var FBDispatcher = require('flux').Dispatcher;
-    var EventEmitter = require('events').EventEmitter;
+    var EventEmitter = require('./EventEmitter');
     var assign = require('object-assign');
 
     var CHANGE_EVENT = 'relax:change';
