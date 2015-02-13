@@ -1,7 +1,7 @@
 Relax.js
 ========
 
-This is an implementation of Flux inspired by [DeLorean](https://github.com/deloreanjs/delorean), but more close to the original Facebook approach with data incapsulation.
+This is an implementation of Flux inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but more close to the original Facebook approach with data incapsulation.
 
 ## Installation
 
@@ -96,4 +96,4 @@ SomeStore.offChange(storeDidChange);
 
 ## Release history
 
-* 0.1.0 - Initial release
+* **0.1.0**: Initial release
