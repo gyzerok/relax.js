@@ -64,3 +64,5 @@ EventEmitter.prototype.emit = function (event) {
         }
     }
 };
+
+module.exports = EventEmitter;

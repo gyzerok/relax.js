@@ -412,6 +412,8 @@ EventEmitter.prototype.emit = function (event) {
         }
     }
 };
+
+module.exports = EventEmitter;
 },{}],6:[function(require,module,exports){
 /*
  * Copyright (c) 2014, Fedor Nezhivoy
