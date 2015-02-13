@@ -7,7 +7,11 @@ It is highly recommended to use it with the Facebook [Immutable](https://github.
 
 ## Installation
 
+Using Node Package Manager:
+
     npm install relax.js --save
+
+Using Bower
 
     bower install relax.js --save
 
