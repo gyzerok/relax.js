@@ -1,7 +1,7 @@
 Relax.js
 ========
 
-This is an implementation of Flux inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but more close to the original Facebook approach with data incapsulation.
+This is a tiny, framework agnostic implementation of the Flux pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with a data incapsulation.
 
 It is highly recommended to use it with the Facebook [Immutable](https://github.com/facebook/immutable-js) library.
 
@@ -11,16 +11,16 @@ It is highly recommended to use it with the Facebook [Immutable](https://github.
 
 ## Usage
 
-For the first lets create a simple Dispatcher.
+First of all let's create a simple Dispatcher.
 ```javascript
 // AppDispatcher.js
 
 module.exports = Relax.createDispatcher();
 ```
 
-Then simple Store with just one action.
+Then, make a simple Store with just one action.
 
-**Note:** The return value for an data modification function have to be a boolean value which indicates should the Store emits change event or not.
+**Note:** The return value for the data modification function have to be a boolean value which indicates whether Store changes event or not.
 ```javascript
 // SomeStore.js
 
@@ -46,7 +46,7 @@ AppDispatcher.subscribe(SomeStore, {
 module.exports = SomeStore;
 ```
 
-If you dont want to create Actions module, you not have to. Just you ```handleViewAction``` and ```handleServerAction``` Dispatcher methods.
+If you don't want to create Actions module, you don't have to. Just use ```handleViewAction``` and ```handleServerAction``` Dispatcher methods.
 ```javascript
 // SomeActions.js
 
@@ -64,7 +64,7 @@ module.exports = {
 };
 ```
 
-Now we may create a simple view to close the Flux cycle.
+Now we can create a simple view to close the Flux cycle.
 ```javascript
 // SomeView.js
 
