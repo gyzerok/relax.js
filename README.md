@@ -11,7 +11,7 @@ It is highly recommended to use it with the Facebook [Immutable](https://github.
 
 ## Usage
 
-For the first we creates a simple Dispatcher.
+For the first lets create a simple Dispatcher.
 ```javascript
 // AppDispatcher.js
 
@@ -95,6 +95,8 @@ SomeStore.offChange(storeDidChange);
 ## Tests
 
     npm test
+
+**Note:** Tests for now are under development.
 
 ## Release history
 
