@@ -1,7 +1,7 @@
 Relax.js
 ========
 
-This is a tiny, framework agnostic implementation of the [Flux](https://github.com/facebook/flux) pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with a data incapsulation.
+This is a tiny, framework agnostic implementation of the [Flux](https://github.com/facebook/flux) pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with data incapsulation.
 
 It is highly recommended to use it with the Facebook [Immutable](https://github.com/facebook/immutable-js) library for more Store data privacy.
 
