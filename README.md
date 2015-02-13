@@ -11,7 +11,7 @@ Using Node Package Manager:
 
     npm install relax.js --save
 
-Using Bower
+Using Bower:
 
     bower install relax.js --save
 
