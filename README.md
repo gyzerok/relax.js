@@ -112,6 +112,10 @@ SomeStore.offChange(storeDidChange);
 
 **Note:** Tests for now are under development.
 
+## License
+
+[Relax](https://github.com/gyzerok/relax.js) is MIT-licensed.
+
 ## Release history
 
 * **0.1.2**: Bower support
