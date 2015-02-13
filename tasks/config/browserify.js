@@ -5,12 +5,7 @@ module.exports = function (grunt) {
     grunt.config.set('browserify', {
         app: {
             options: {
-                debug: false,
-                watch: true,
-                keepAlive: true,
-                transform: [
-                    ['uglifyify', { global: true }]
-                ]
+                debug: false
             },
             src: 'src/index.js',
             dest: 'dist/Relax.js'

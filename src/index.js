@@ -1,3 +1,7 @@
+/**
+ * Relax is a simple implementation of Flux pattern
+ */
+
 (function () {
     'use strict';
 
