@@ -25,8 +25,8 @@
     "url": "https://github.com/gyzerok/relax.js/blob/master/LICENSE"
   },
   "dependencies": {
-    "flux": "^2.0.1",
-    "object-assign": "^2.0.0"
+    "flux": "2.0.1",
+    "object-assign": "2.0.0"
   },
   "devDependencies": {
     "6to5ify": "^4.1.1",
