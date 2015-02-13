@@ -100,6 +100,12 @@ SomeStore.onChange(storeDidChange);
 SomeStore.offChange(storeDidChange);
 ```
 
+## Wiki
+
+* [Dispatcher API](https://github.com/gyzerok/relax.js/wiki/Dispatcher-API)
+* [Store API](https://github.com/gyzerok/relax.js/wiki/Store-API)
+* [Tips & Tricks](https://github.com/gyzerok/relax.js/wiki/Tips-&-Tricks)
+
 ## Tests
 
     npm test
