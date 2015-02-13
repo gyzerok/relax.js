@@ -60,8 +60,10 @@ var AppDispatcher = require('./AppDispatcher');
 
 module.exports = {
     append: function (data) {
-        // An actionType have to be same as a key of the object
-        // passed to Dispatcher.subscribe()
+        /**
+        * An actionType have to be same as a key of the object
+        * passed to Dispatcher.subscribe() method.
+        */
         AppDispatcher.handleViewAction(
             actionType: 'appendData',
             data: data
