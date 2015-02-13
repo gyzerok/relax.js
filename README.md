@@ -9,12 +9,15 @@ This is an implementation of Flux pattern with strongly point on incapsulation.
 
 ## Usage
 
+For the first we creates a simple Dispatcher.
 ```javascript
 // AppDispatcher.js
 
 module.exports = Relax.createDispatcher();
 ```
 
+Then simple Store with just one action.
+**Note:** The return value for an action must be a boolean value which indicates should the Store emits change event or not.
 ```javascript
 // SomeStore.js
 
@@ -40,6 +43,7 @@ AppDispatcher.subscribe(SomeStore, {
 module.exports = SomeStore;
 ```
 
+If you dont want to create Actions module, you not have to. Just you ```handleViewAction``` and ```handleServerAction``` Dispatcher methods.
 ```javascript
 // SomeActions.js
 
