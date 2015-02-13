@@ -3,6 +3,8 @@ Relax.js
 
 This is an implementation of Flux inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but more close to the original Facebook approach with data incapsulation.
 
+It is highly recommended to use it with the Facebook [Immutable](https://github.com/facebook/immutable-js) library.
+
 ## Installation
 
     npm install relax.js --save
