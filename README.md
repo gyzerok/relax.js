@@ -1,9 +1,9 @@
 Relax.js
 ========
 
-This is an implementation of Flux pattern with strongly point on incapsulation.
+This is an implementation of Flux inspired by [DeLorean](https://github.com/deloreanjs/delorean), but more close to the original Facebook approach with data incapsulation.
 
-## Instalation
+## Installation
 
     npm install relax.js --save
 
