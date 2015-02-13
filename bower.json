@@ -1,0 +1,20 @@
+{
+  "name": "relax.js",
+  "version": "0.1.1",
+  "homepage": "https://github.com/gyzerok/relax.js",
+  "authors": [
+    "Fedor Nezhivoy <gyzerok@gmail.com>"
+  ],
+  "main": "dist/Relax.js",
+  "keywords": [
+    "flux",
+    "framework"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/__tests__"
+  ]
+}
