@@ -1,4 +1,6 @@
-'use strict';
+/**
+ * This source code was originally copied from https://gist.github.com/mudge/5830382
+ */
 
 /* Polyfill indexOf. */
 var indexOf;

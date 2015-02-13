@@ -7,7 +7,7 @@ module.exports = function (grunt) {
             options: {
                 debug: false
             },
-            src: 'src/index.js',
+            src: 'src/Relax.js',
             dest: 'dist/Relax.js'
         }
     });
