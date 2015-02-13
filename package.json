@@ -1,0 +1,30 @@
+{
+  "name": "relax.js",
+  "version": "0.1.0",
+  "description": "Little imlementation Flux pattern",
+  "keywords": [
+    "flux"
+  ],
+  "author": {
+    "name": "Fedor Nezhivoy",
+    "email": "gyzerok@gmail.com",
+    "url": "https://github.com/gyzerok"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "6to5ify": "^4.1.1",
+    "browserify": "^8.1.3",
+    "flux": "^2.0.1",
+    "react": "^0.12.2",
+    "react-tools": "^0.12.2"
+  }
+}
