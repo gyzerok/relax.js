@@ -62,6 +62,7 @@ module.exports = {
 };
 ```
 
+Now we may create a simple view to close the Flux cycle.
 ```javascript
 // SomeView.js
 
@@ -75,7 +76,9 @@ function storeDidChange() {
 }
 
 function onAnyElementClick(e) {
-    var data = // extract data from the view
+    var data;
+
+    // extract data from the view
 
     SomeActions.append(data);
 }
@@ -84,7 +87,7 @@ SomeStore.onChange(storeDidChange);
 
 // Some more logic...
 
-SomeStore.off(storeDidChange);
+SomeStore.offChange(storeDidChange);
 ```
 
 ## Tests
