@@ -114,7 +114,7 @@ SomeStore.offChange(storeDidChange);
 
 ## License
 
-[Relax](https://github.com/gyzerok/relax.js) is MIT-licensed.
+[Relax.js](https://github.com/gyzerok/relax.js) is MIT-licensed.
 
 ## Release history
 
