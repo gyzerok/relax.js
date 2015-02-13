@@ -1,7 +1,7 @@
 {
   "name": "relax.js",
   "version": "0.1.1",
-  "description": "A small imlementation of the Flux pattern",
+  "description": "An imlementation of the Flux pattern",
   "keywords": [
     "flux",
     "framework"
