@@ -3,4 +3,4 @@ Gruntfile
 README.md
 CHANGELOG.md
 tasks
-src
+dist

@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/gyzerok/relax.js"
   },
-  "main": "dist/Relax.js",
+  "main": "src/Relax.js",
   "scripts": {
     "test": "jest"
   },
