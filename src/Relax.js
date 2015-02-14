@@ -12,8 +12,13 @@ var EventEmitter = require('./EventEmitter');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'relax:change';
+var VIEW_ACTION = 'VIEW_ACTION';
+var SERVER_ACTION = 'SERVER_ACTION';
 
 var Relax = {
+
+    VIEW_ACTION: VIEW_ACTION,
+    SERVER_ACTION: SERVER_ACTION,
 
     /**
      * Creates new singleton store.
@@ -73,7 +78,7 @@ var Relax = {
              */
             handleViewAction: function(action) {
                 this.dispatch({
-                    source: 'VIEW_ACTION',
+                    source: VIEW_ACTION,
                     action: action
                 });
             },
@@ -85,7 +90,7 @@ var Relax = {
              */
             handleServerAction: function (action) {
                 this.dispatch({
-                    source: 'SERVER_ACTION',
+                    source: SERVER_ACTION,
                     action: action
                 });
             },
