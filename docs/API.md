@@ -7,7 +7,8 @@ Describe actions here
 
 ## Dispatcher API
 
-Dispatcher is used to broadcast actions to registered Stores. Check out [Relax.js](https://github.com/gyzerok/relax.js/blob/master/src/Relax.js) for source code.
+Dispatcher is used to broadcast actions to registered Stores.
+Check out [Relax.js](https://github.com/gyzerok/relax.js/blob/master/src/Relax.js) for source code.
 
 ### Dispatcher.handleViewAction(action: Object)
 Dispatchers action as a view action (```payload.source == VIEW_ACTION```).
@@ -20,7 +21,8 @@ Registers Store for a given set of actions. Actions object
 
 ## Store API
 
-Stores are your model layer. You can register Stores to handle any of actions and the notify your views about ones changes. Check out [Relax.js](https://github.com/gyzerok/relax.js/blob/master/src/Relax.js) for source code.
+Stores are your model layer. You can register Stores to handle any of actions and the notify your views about ones changes.
+Check out [Relax.js](https://github.com/gyzerok/relax.js/blob/master/src/Relax.js) for source code.
 
 ### Store.onChange(callback: Function)
 Registers ```callback``` for the Store change event.
