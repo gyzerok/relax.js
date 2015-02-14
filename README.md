@@ -1,7 +1,9 @@
 Relax.js
 ========
 
-This is a tiny, framework agnostic implementation of the [Flux](https://github.com/facebook/flux) pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with data incapsulation. Relax doesn't force you to use any additional conventions. It just gives you an ability to move on without writing too much boilerplate code. Since Relax Dispatcher uses Facebook Dispatcher you can access original methods though Relax provide you bunch of more convenient wrappers for them.
+This is a tiny, framework agnostic implementation of the [Flux](https://github.com/facebook/flux) pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with data incapsulation.
+
+Relax doesn't force you to use any additional conventions. It just gives you an ability to move on without writing too much boilerplate code. Since Relax Dispatcher uses Facebook Dispatcher you can access original methods though Relax provide you bunch of more convenient wrappers for them.
 
 It is highly recommended to use it with the Facebook [Immutable](https://github.com/facebook/immutable-js) library for more Store data privacy.
 
