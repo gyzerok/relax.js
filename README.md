@@ -26,7 +26,7 @@ module.exports = Relax.createDispatcher();
 
 Then, make a simple Store with just one action.
 
-**Note:** The return value for the data modification function have to be a boolean value which indicates whether Store changes event or not.
+**Note:** The return value for the data modification function have to be a boolean value which indicates whether Store emits change event or not.
 ```javascript
 // SomeStore.js
 
@@ -37,7 +37,7 @@ var collection = [];
 function appendData(data) {
     collection.push(data);
 
-    return true; // Return value here indicates should Store emit change or not
+    return true; // Return value here indicates whether Store emits change event or not
 }
 
 var SomeStore = Relax.createStore({
