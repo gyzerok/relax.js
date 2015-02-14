@@ -1,7 +1,9 @@
 Relax.js
 ========
 
-This is a tiny, framework agnostic implementation of the [Flux](https://github.com/facebook/flux) pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with data incapsulation. Relax doesn't force you to use any additional conventions. It just gives you an ability to move on without writing too much boilerplate code. Since Relax Dispatcher uses Facebook Dispatcher you can access original methods though Relax provide you bunch of more convenient wrappers for them.
+This is a tiny, framework agnostic implementation of the [Flux](https://github.com/facebook/flux) pattern inspired by the [DeLorean](https://github.com/deloreanjs/delorean), but closer to the original Facebook approach with data incapsulation.
+
+Relax doesn't force you to use any additional conventions. It just gives you an ability to move on without writing too much boilerplate code. Since Relax Dispatcher uses Facebook Dispatcher you can access original methods though Relax provide you bunch of more convenient wrappers for them.
 
 It is highly recommended to use it with the Facebook [Immutable](https://github.com/facebook/immutable-js) library for more Store data privacy.
 
@@ -24,38 +26,6 @@ First of all let's create a simple Dispatcher.
 module.exports = Relax.createDispatcher();
 ```
 
-Then, make a simple Store with just one action.
-
-**Note:** The return value for the data modification function have to be a boolean value which indicates whether Store emits change event or not.
-```javascript
-// SomeStore.js
-
-var AppDispatcher = require('./AppDispatcher');
-
-var collection = [];
-
-function appendData(data, source) {
-    /** 
-    * source parameter corresponds to Relax.VIEW_ACTION or Relax.SERVER_ACTION
-    * it depends on usage of Dispatcher.handleViewAction() or Dispatcher.handleServerAction()
-    */
-    collection.push(data);
-
-    return true; // Return value here indicates whether Store emits change event or not
-}
-
-var SomeStore = Relax.createStore({
-    getAll: function () {
-        return data;
-    }
-});
-AppDispatcher.subscribe(SomeStore, {
-    'appendData': appendData
-});
-
-module.exports = SomeStore;
-```
-
 If you don't want to create Actions module, you don't have to. Just use ```handleViewAction``` and ```handleServerAction``` Dispatcher methods.
 ```javascript
 // SomeActions.js
@@ -74,6 +44,56 @@ module.exports = {
         );
     }
 };
+```
+
+Then, make a simple Store with just one action.
+
+**Note:** The return value for the data modification function have to be a boolean value which indicates whether Store emits change event or not.
+```javascript
+// SomeStore.js
+
+var AppDispatcher = require('./AppDispatcher');
+
+var collection = [];
+
+function appendData(data, source) {
+    /** 
+    * Source parameter corresponds to Relax.VIEW_ACTION or Relax.SERVER_ACTION
+    * it depends on usage of Dispatcher.handleViewAction() or Dispatcher.handleServerAction()
+    */
+    switch (source) {
+        case Relax.VIEW_ACTION:
+            // code
+            break;
+        case Relax.SERVER_ACTION:
+            //code
+            break;
+    }
+    
+    /**
+    * Data parameter corresponds to the data of an action
+    * passed to Dispatcher.handleViewAction() aor Dispatcher.hnadleServerAction()
+    */
+    collection.push(data);
+
+    return true; // Return value here indicates whether Store emits change event or not
+}
+
+var SomeStore = Relax.createStore({
+    getAll: function () {
+        return collection;
+    }
+});
+
+/**
+* Keys for second parameter are actionTypes of the actions
+* passed to Dispatcher.handleViewAction() aor Dispatcher.hnadleServerAction()
+*/
+AppDispatcher.subscribe(SomeStore, {
+    'appendData': appendData
+});
+
+module.exports = SomeStore;
 ```
 
 Now we can create a simple view to close the Flux cycle.
