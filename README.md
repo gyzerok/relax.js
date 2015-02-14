@@ -81,7 +81,7 @@ function appendData(data, source) {
 
 var SomeStore = Relax.createStore({
     getAll: function () {
-        return data;
+        return collection;
     }
 });
 
