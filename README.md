@@ -122,6 +122,7 @@ SomeStore.offChange(storeDidChange);
 
 ## Release history
 
+* **0.1.3**: Added ```VIEW_ACTION``` and ```SERVER_ACTION``` constans to the Relax object.
 * **0.1.2**: Bower support
 * **0.1.1**: First working release
 * **0.1.0**: Initial release
