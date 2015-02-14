@@ -38,8 +38,21 @@ var collection = [];
 
 function appendData(data, source) {
     /** 
-    * source parameter corresponds to Relax.VIEW_ACTION or Relax.SERVER_ACTION
+    * Source parameter corresponds to Relax.VIEW_ACTION or Relax.SERVER_ACTION
     * it depends on usage of Dispatcher.handleViewAction() or Dispatcher.handleServerAction()
+    */
+    switch (source) {
+        case Relax.VIEW_ACTION:
+            // code
+            break;
+        case Relax.SERVER_ACTION:
+            //code
+            break;
+    }
+    
+    /**
+    * Data parameter corresponds to the data of an action
+    * passed to Dispatcher.handleViewAction() aor Dispatcher.hnadleServerAction()
     */
     collection.push(data);
 
@@ -51,6 +64,11 @@ var SomeStore = Relax.createStore({
         return data;
     }
 });
+
+/**
+* Keys for second parameter are actionTypes of the actions
+* passed to Dispatcher.handleViewAction() aor Dispatcher.hnadleServerAction()
+*/
 AppDispatcher.subscribe(SomeStore, {
     'appendData': appendData
 });
