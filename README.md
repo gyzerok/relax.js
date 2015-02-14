@@ -26,6 +26,26 @@ First of all let's create a simple Dispatcher.
 module.exports = Relax.createDispatcher();
 ```
 
+If you don't want to create Actions module, you don't have to. Just use ```handleViewAction``` and ```handleServerAction``` Dispatcher methods.
+```javascript
+// SomeActions.js
+
+var AppDispatcher = require('./AppDispatcher');
+
+module.exports = {
+    append: function (data) {
+        /**
+        * An actionType have to be same as a key of the object
+        * passed to Dispatcher.subscribe() method.
+        */
+        AppDispatcher.handleViewAction(
+            actionType: 'appendData',
+            data: data
+        );
+    }
+};
+```
+
 Then, make a simple Store with just one action.
 
 **Note:** The return value for the data modification function have to be a boolean value which indicates whether Store emits change event or not.
@@ -74,26 +94,6 @@ AppDispatcher.subscribe(SomeStore, {
 });
 
 module.exports = SomeStore;
-```
-
-If you don't want to create Actions module, you don't have to. Just use ```handleViewAction``` and ```handleServerAction``` Dispatcher methods.
-```javascript
-// SomeActions.js
-
-var AppDispatcher = require('./AppDispatcher');
-
-module.exports = {
-    append: function (data) {
-        /**
-        * An actionType have to be same as a key of the object
-        * passed to Dispatcher.subscribe() method.
-        */
-        AppDispatcher.handleViewAction(
-            actionType: 'appendData',
-            data: data
-        );
-    }
-};
 ```
 
 Now we can create a simple view to close the Flux cycle.
