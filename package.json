@@ -4,7 +4,8 @@
   "description": "An imlementation of the Flux pattern",
   "keywords": [
     "flux",
-    "framework"
+    "framework",
+    "delorean"
   ],
   "author": {
     "name": "Fedor Nezhivoy",
