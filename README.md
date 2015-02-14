@@ -34,7 +34,11 @@ var AppDispatcher = require('./AppDispatcher');
 
 var collection = [];
 
-function appendData(data) {
+function appendData(data, source) {
+    /** 
+    * source parameter corresponds to Relax.VIEW_ACTION or Relax.SERVER_ACTION
+    * it depends on usage of Dispatcher.handleViewAction() or Dispatcher.handleServerAction()
+    */
     collection.push(data);
 
     return true; // Return value here indicates whether Store emits change event or not
