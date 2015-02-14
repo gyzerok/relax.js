@@ -37,7 +37,7 @@ var collection = [];
 function appendData(data) {
     collection.push(data);
 
-    return true;
+    return true; // Return value here indicates should Store emit change or not
 }
 
 var SomeStore = Relax.createStore({
