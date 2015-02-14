@@ -1,5 +1,5 @@
 ## 0.1.3 (upcoming)
-* Added VIEW_ACTION and SERVER_ACTION constans to the Relax object.
+* Added ```VIEW_ACTION``` and ```SERVER_ACTION``` constans to the Relax object.
 
 ## 0.1.2
 * Bower support
