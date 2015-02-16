@@ -72,7 +72,7 @@ function appendData(data, source) {
     
     /**
     * Data parameter corresponds to the data of an action
-    * passed to Dispatcher.handleViewAction() aor Dispatcher.hnadleServerAction()
+    * passed to Dispatcher.handleViewAction() or Dispatcher.handleServerAction()
     */
     collection.push(data);
 
