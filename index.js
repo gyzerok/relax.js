@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Fedor Nezhivoy
+ * Copyright (c) 2015, Fedor Nezhivoy
  * All rights reserved.
  *
  * This source code is licensed under the MIT license found in the
