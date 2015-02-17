@@ -124,12 +124,6 @@ SomeStore.onChange(storeDidChange);
 SomeStore.offChange(storeDidChange);
 ```
 
-## Wiki
-
-* [Dispatcher API](https://github.com/gyzerok/relax.js/wiki/Dispatcher-API)
-* [Store API](https://github.com/gyzerok/relax.js/wiki/Store-API)
-* [Tips & Tricks](https://github.com/gyzerok/relax.js/wiki/Tips-&-Tricks)
-
 ## Tests
 
     npm test
@@ -139,10 +133,3 @@ SomeStore.offChange(storeDidChange);
 ## License
 
 [Relax.js](https://github.com/gyzerok/relax.js) is MIT-licensed.
-
-## Release history
-
-* **0.1.3**: Added ```VIEW_ACTION``` and ```SERVER_ACTION``` constans to the Relax object.
-* **0.1.2**: Bower support
-* **0.1.1**: First working release
-* **0.1.0**: Initial release
