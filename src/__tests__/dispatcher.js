@@ -53,4 +53,8 @@ describe('Dispatcher', function () {
         expect(callbackA.mock.calls[0][0], actionA.data);
         expect(callbackB.mock.calls[0][0], actionB.data);
     });
+
+    it('should wait for await stores', function () {
+
+    });
 });
