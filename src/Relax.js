@@ -14,11 +14,13 @@ var assign = require('object-assign');
 var CHANGE_EVENT = 'relax:change';
 var VIEW_ACTION = 'VIEW_ACTION';
 var SERVER_ACTION = 'SERVER_ACTION';
+var PLATFORM_ACTION = 'PLATFORM_ACTION';
 
 var Relax = {
 
     VIEW_ACTION: VIEW_ACTION,
     SERVER_ACTION: SERVER_ACTION,
+    PLATFORM_ACTION: PLATFORM_ACTION,
 
     /**
      * Creates new singleton store.
@@ -91,6 +93,18 @@ var Relax = {
             handleServerAction: function (action) {
                 this.dispatch({
                     source: SERVER_ACTION,
+                    action: action
+                });
+            },
+
+            /**
+             * Dispatches action as a platform action.
+             *
+             * @param {object} action
+             */
+            handlePlatformAction: function (action) {
+                this.dispatch({
+                    source: PLATFORM_ACTION,
                     action: action
                 });
             },
