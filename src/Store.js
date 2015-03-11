@@ -5,6 +5,10 @@ var EventEmitter = require('./EventEmitter');
 
 class Store extends EventEmitter {
 
+    constructor() {
+        this.__dispatcherIndex = null;
+    }
+
     /**
      * Triggers change event for the store.
      */
@@ -17,8 +21,8 @@ class Store extends EventEmitter {
      *
      * @param {function} callback
      */
-    onChange(cb) {
-        this.on(constants.CHANGE_EVENT, cb);
+    onChange(callback) {
+        this.on(constants.CHANGE_EVENT, callback);
     }
 
     /**
@@ -26,8 +30,8 @@ class Store extends EventEmitter {
      *
      * @param {function} callback
      */
-    offChange(cb) {
-        this.removeListener(constants.CHANGE_EVENT, cb);
+    offChange(callback) {
+        this.removeListener(constants.CHANGE_EVENT, callback);
     }
 }
 

@@ -26,12 +26,18 @@ if (typeof Array.prototype.indexOf === 'function') {
     };
 };
 
-/* Polyfill EventEmitter. */
 class EventEmitter {
+
     constructor() {
         this.__events = {};
     }
 
+    /**
+     * Registers listener for the event.
+     *
+     * @param {string} event
+     * @param {function} listener
+     */
     on(event, listener) {
         if (typeof this.__events[event] !== 'object') {
             this.__events[event] = [];
@@ -40,6 +46,12 @@ class EventEmitter {
         this.__events[event].push(listener);
     }
 
+    /**
+     * Removes listener for the event.
+     *
+     * @param {string} event
+     * @param {function} listener
+     */
     removeListener(event, listener) {
         var idx;
 
@@ -52,6 +64,11 @@ class EventEmitter {
         }
     }
 
+    /**
+     * Emits the event.
+     *
+     * @param {string} event
+     */
     emit(event) {
         var i, listeners, length, args = [].slice.call(arguments, 1);
 
