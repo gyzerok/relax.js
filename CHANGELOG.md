@@ -1,6 +1,6 @@
 ## 0.2.0
 * ECMAScript 2015 support.
-* TodoMVC example.
+* [TodoMVC](https://github.com/gyzerok/relax.js/tree/master/examples/TodoMVC) example.
 
 ## 0.1.3
 * Added ```VIEW_ACTION``` and ```SERVER_ACTION``` constans to the Relax object.
