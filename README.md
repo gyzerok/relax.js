@@ -22,6 +22,8 @@ Using Bower:
 You can check the [TodoMVC](https://github.com/gyzerok/relax.js/tree/master/examples/TodoMVC) example on http://127.0.0.1:1337 after executing
 
     grunt todomvc
+    
+**Note:** Example uses ECMAScript 2015 syntax.
 
 ## Usage
 
