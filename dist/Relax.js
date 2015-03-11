@@ -393,7 +393,7 @@ class Dispatcher extends FBDispatcher {
      * Registers a Store to be notified about all the actions.
      *
      * @param {Store} store
-     * @param {map<string, function>} actions
+     * @param {Map<string, function>} actions
      */
     subscribe(store, actions) {
         if (actions === {}) throw 'You have to provide store for subscription';
@@ -461,14 +461,20 @@ if (typeof Array.prototype.indexOf === 'function') {
 
         return idx;
     };
-};
+}
 
-/* Polyfill EventEmitter. */
 class EventEmitter {
+
     constructor() {
         this.__events = {};
     }
 
+    /**
+     * Registers listener for the event.
+     *
+     * @param {string} event
+     * @param {function} listener
+     */
     on(event, listener) {
         if (typeof this.__events[event] !== 'object') {
             this.__events[event] = [];
@@ -477,6 +483,12 @@ class EventEmitter {
         this.__events[event].push(listener);
     }
 
+    /**
+     * Removes listener for the event.
+     *
+     * @param {string} event
+     * @param {function} listener
+     */
     removeListener(event, listener) {
         var idx;
 
@@ -489,6 +501,11 @@ class EventEmitter {
         }
     }
 
+    /**
+     * Emits the event.
+     *
+     * @param {string} event
+     */
     emit(event) {
         var i, listeners, length, args = [].slice.call(arguments, 1);
 
@@ -569,6 +586,10 @@ var EventEmitter = require('./EventEmitter');
 
 class Store extends EventEmitter {
 
+    constructor() {
+        this.__dispatcherIndex = null;
+    }
+
     /**
      * Triggers change event for the store.
      */
@@ -581,8 +602,8 @@ class Store extends EventEmitter {
      *
      * @param {function} callback
      */
-    onChange(cb) {
-        this.on(constants.CHANGE_EVENT, cb);
+    onChange(callback) {
+        this.on(constants.CHANGE_EVENT, callback);
     }
 
     /**
@@ -590,8 +611,8 @@ class Store extends EventEmitter {
      *
      * @param {function} callback
      */
-    offChange(cb) {
-        this.removeListener(constants.CHANGE_EVENT, cb);
+    offChange(callback) {
+        this.removeListener(constants.CHANGE_EVENT, callback);
     }
 }
 

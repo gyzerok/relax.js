@@ -45,10 +45,10 @@ class Dispatcher extends FBDispatcher {
      * Registers a Store to be notified about all the actions.
      *
      * @param {Store} store
-     * @param {map<string, function>} actions
+     * @param {Map<string, function>} actions
      */
     subscribe(store, actions) {
-        if (actions === {}) throw 'You have to provide store for subscription';
+        if (Object.keys(actions).length === 0) throw 'You have to provide store for subscription';
 
         store.__dispatcherIndex = this.register(function (payload) {
             var action = payload.action;
