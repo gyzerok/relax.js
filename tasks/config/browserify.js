@@ -8,7 +8,7 @@ module.exports = function (grunt) {
                 debug: false
             },
             transform: [
-                '6to5ify'
+                'babelify'
             ],
             src: 'src/Relax.js',
             dest: 'dist/Relax.js'
