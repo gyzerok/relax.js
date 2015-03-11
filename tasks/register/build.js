@@ -6,7 +6,7 @@ module.exports = function (grunt) {
         'clean',
         'browserify',
         'babel',
-        'uglify',
+        //'uglify',
         'watch'
     ]);
 };
