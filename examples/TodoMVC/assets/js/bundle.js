@@ -191,9 +191,15 @@ React.render(React.createElement(App, null), document.getElementById("root"));
 },{"../../../lib/Relax":11,"./components/App.react.js":2}],8:[function(require,module,exports){
 "use strict";
 
+var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+
+var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
 var AppDispatcher = require("../dispatcher/AppDispatcher");
 
-var todos = Immutable.OrderedMap();;
+var todos = Immutable.OrderedMap();
 
 function add(data) {
     var id = Date.now();
@@ -211,19 +217,36 @@ function remove(data) {
     return true;
 }
 
-var TodoStore = Relax.createStore({
+var TodoStore = (function (_Relax$Store) {
+    function TodoStore() {
+        _classCallCheck(this, TodoStore);
 
-    getAll: function getAll() {
-        return todos;
+        if (_Relax$Store != null) {
+            _Relax$Store.apply(this, arguments);
+        }
     }
-});
 
-AppDispatcher.subscribe(TodoStore, {
+    _inherits(TodoStore, _Relax$Store);
+
+    _createClass(TodoStore, {
+        getAll: {
+            value: function getAll() {
+                return todos;
+            }
+        }
+    });
+
+    return TodoStore;
+})(Relax.Store);
+
+var todoStore = new TodoStore();
+
+AppDispatcher.subscribe(todoStore, {
     "add-todo": add,
     "remove-todo": remove
 });
 
-module.exports = TodoStore;
+module.exports = todoStore;
 
 },{"../dispatcher/AppDispatcher":6}],9:[function(require,module,exports){
 "use strict";

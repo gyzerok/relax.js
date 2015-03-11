@@ -2,7 +2,7 @@
 
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 
-var todos = Immutable.OrderedMap();;
+var todos = Immutable.OrderedMap();
 
 function add(data) {
     var id = Date.now();
@@ -20,16 +20,16 @@ function remove(data) {
     return true;
 }
 
-var TodoStore = Relax.createStore({
-
-    getAll: function () {
+class TodoStore extends Relax.Store {
+    getAll() {
         return todos;
     }
-});
+}
+var todoStore = new TodoStore;
 
-AppDispatcher.subscribe(TodoStore, {
+AppDispatcher.subscribe(todoStore, {
     'add-todo': add,
     'remove-todo': remove
 });
 
-module.exports = TodoStore;
+module.exports = todoStore;
