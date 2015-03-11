@@ -17,6 +17,12 @@ Using Bower:
 
     bower install relax.js --save
 
+## Examples
+
+You can check the [TodoMVC](https://github.com/gyzerok/relax.js/tree/master/examples/TodoMVC) example on http://127.0.0.1:1337 by executing
+
+    grunt todomvc
+
 ## Usage
 
 First of all let's create a simple Dispatcher.
