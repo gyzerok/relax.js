@@ -26,43 +26,44 @@ if (typeof Array.prototype.indexOf === 'function') {
     };
 };
 
-
 /* Polyfill EventEmitter. */
-var EventEmitter = function () {
-    this.__events = {};
-};
-
-EventEmitter.prototype.on = function (event, listener) {
-    if (typeof this.__events[event] !== 'object') {
-        this.__events[event] = [];
+class EventEmitter {
+    constructor() {
+        this.__events = {};
     }
 
-    this.__events[event].push(listener);
-};
+    on(event, listener) {
+        if (typeof this.__events[event] !== 'object') {
+            this.__events[event] = [];
+        }
 
-EventEmitter.prototype.removeListener = function (event, listener) {
-    var idx;
+        this.__events[event].push(listener);
+    }
 
-    if (typeof this.__events[event] === 'object') {
-        idx = indexOf(this.__events[event], listener);
+    removeListener(event, listener) {
+        var idx;
 
-        if (idx > -1) {
-            this.__events[event].splice(idx, 1);
+        if (typeof this.__events[event] === 'object') {
+            idx = indexOf(this.__events[event], listener);
+
+            if (idx > -1) {
+                this.__events[event].splice(idx, 1);
+            }
         }
     }
-};
 
-EventEmitter.prototype.emit = function (event) {
-    var i, listeners, length, args = [].slice.call(arguments, 1);
+    emit(event) {
+        var i, listeners, length, args = [].slice.call(arguments, 1);
 
-    if (typeof this.__events[event] === 'object') {
-        listeners = this.__events[event].slice();
-        length = listeners.length;
+        if (typeof this.__events[event] === 'object') {
+            listeners = this.__events[event].slice();
+            length = listeners.length;
 
-        for (i = 0; i < length; i++) {
-            listeners[i].apply(this, args);
+            for (i = 0; i < length; i++) {
+                listeners[i].apply(this, args);
+            }
         }
     }
-};
+}
 
 module.exports = EventEmitter;
