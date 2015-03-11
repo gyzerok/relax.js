@@ -346,95 +346,140 @@ module.exports = Object.assign || function (target, source) {
 };
 
 },{}],5:[function(require,module,exports){
-'use strict';
+"use strict";
 
-var constants = require('./constants');
-var FBDispatcher = require('flux').Dispatcher;
+var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-class Dispatcher extends FBDispatcher {
+var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
-    /**
-     * Dispatches action as a view action.
-     *
-     * @param {object} action
-     */
-    handleViewAction(action) {
-        this.dispatch({
-            source: constants.VIEW_ACTION,
-            action: action
-        });
+var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+var constants = require("./constants");
+var FBDispatcher = require("flux").Dispatcher;
+
+var Dispatcher = (function (_FBDispatcher) {
+    function Dispatcher() {
+        _classCallCheck(this, Dispatcher);
+
+        if (_FBDispatcher != null) {
+            _FBDispatcher.apply(this, arguments);
+        }
     }
 
-    /**
-     * Dispatches action as a server action.
-     *
-     * @param {object} action
-     */
-    handleServerAction(action) {
-        this.dispatch({
-            source: constants.SERVER_ACTION,
-            action: action
-        });
-    }
+    _inherits(Dispatcher, _FBDispatcher);
 
-    /**
-     * Dispatches action as a platform action.
-     *
-     * @param {object} action
-     */
-    handlePlatformAction(action) {
-        this.dispatch({
-            source: constants.PLATFORM_ACTION,
-            action: action
-        });
-    }
+    _createClass(Dispatcher, {
+        handleViewAction: {
 
-    /**
-     * Registers a Store to be notified about all the actions.
-     *
-     * @param {Store} store
-     * @param {Map<string, function>} actions
-     */
-    subscribe(store, actions) {
-        if (Object.keys(actions).length === 0) throw 'You have to provide store for subscription';
+            /**
+             * Dispatches action as a view action.
+             *
+             * @param {object} action
+             */
 
-        store.__dispatcherIndex = this.register(function (payload) {
-            var action = payload.action;
-
-            for (var actionType in actions) {
-                if (actionType !== action.actionType) continue;
-                var isDataChanged = actions[actionType](action.data, payload.source);
-                if (isDataChanged) store.emitChange();
+            value: function handleViewAction(action) {
+                this.dispatch({
+                    source: constants.VIEW_ACTION,
+                    action: action
+                });
             }
-        });
-    }
+        },
+        handleServerAction: {
 
-    /**
-     * Removes a callback based on its token.
-     *
-     * @param {Store} store
-     */
-    unsubscribe(store) {
-        this.unregister(store.__dispatcherIndex);
-    }
+            /**
+             * Dispatches action as a server action.
+             *
+             * @param {object} action
+             */
 
-    /**
-     * Waits for the callbacks specified to be invoked before continuing execution
-     * of the current callback. This method should only be used by a callback in
-     * response to a dispatched payload.
-     *
-     * @param {array<Store>} stores
-     */
-    await(stores) {
-        var ids = stores.map(function (store) {
-            return store.__dispatcherIndex;
-        });
-        this.waitFor(ids);
-    }
-}
+            value: function handleServerAction(action) {
+                this.dispatch({
+                    source: constants.SERVER_ACTION,
+                    action: action
+                });
+            }
+        },
+        handlePlatformAction: {
+
+            /**
+             * Dispatches action as a platform action.
+             *
+             * @param {object} action
+             */
+
+            value: function handlePlatformAction(action) {
+                this.dispatch({
+                    source: constants.PLATFORM_ACTION,
+                    action: action
+                });
+            }
+        },
+        subscribe: {
+
+            /**
+             * Registers a Store to be notified about all the actions.
+             *
+             * @param {Store} store
+             * @param {Map<string, function>} actions
+             */
+
+            value: function subscribe(store, actions) {
+                if (Object.keys(actions).length === 0) throw "You have to provide store for subscription";
+
+                store.__dispatcherIndex = this.register(function (payload) {
+                    var action = payload.action;
+
+                    for (var actionType in actions) {
+                        if (actionType !== action.actionType) continue;
+                        var isDataChanged = actions[actionType](action.data, payload.source);
+                        if (isDataChanged) store.emitChange();
+                    }
+                });
+            }
+        },
+        unsubscribe: {
+
+            /**
+             * Removes a callback based on its token.
+             *
+             * @param {Store} store
+             */
+
+            value: function unsubscribe(store) {
+                this.unregister(store.__dispatcherIndex);
+            }
+        },
+        await: {
+
+            /**
+             * Waits for the callbacks specified to be invoked before continuing execution
+             * of the current callback. This method should only be used by a callback in
+             * response to a dispatched payload.
+             *
+             * @param {array<Store>} stores
+             */
+
+            value: function await(stores) {
+                var ids = stores.map(function (store) {
+                    return store.__dispatcherIndex;
+                });
+                this.waitFor(ids);
+            }
+        }
+    });
+
+    return Dispatcher;
+})(FBDispatcher);
 
 module.exports = Dispatcher;
+
 },{"./constants":9,"flux":1}],6:[function(require,module,exports){
+"use strict";
+
+var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
 /**
  * This source code was originally copied from https://gist.github.com/mudge/5830382
  */
@@ -442,13 +487,16 @@ module.exports = Dispatcher;
 /* Polyfill indexOf. */
 var indexOf;
 
-if (typeof Array.prototype.indexOf === 'function') {
+if (typeof Array.prototype.indexOf === "function") {
     indexOf = function (haystack, needle) {
         return haystack.indexOf(needle);
     };
 } else {
     indexOf = function (haystack, needle) {
-        var i = 0, length = haystack.length, idx = -1, found = false;
+        var i = 0,
+            length = haystack.length,
+            idx = -1,
+            found = false;
 
         while (i < length && !found) {
             if (haystack[i] === needle) {
@@ -463,65 +511,86 @@ if (typeof Array.prototype.indexOf === 'function') {
     };
 }
 
-class EventEmitter {
+var EventEmitter = (function () {
+    function EventEmitter() {
+        _classCallCheck(this, EventEmitter);
 
-    constructor() {
         this.__events = {};
     }
 
-    /**
-     * Registers listener for the event.
-     *
-     * @param {string} event
-     * @param {function} listener
-     */
-    on(event, listener) {
-        if (typeof this.__events[event] !== 'object') {
-            this.__events[event] = [];
-        }
+    _createClass(EventEmitter, {
+        on: {
 
-        this.__events[event].push(listener);
-    }
+            /**
+             * Registers listener for the event.
+             *
+             * @param {string} event
+             * @param {function} listener
+             */
 
-    /**
-     * Removes listener for the event.
-     *
-     * @param {string} event
-     * @param {function} listener
-     */
-    removeListener(event, listener) {
-        var idx;
+            value: function on(event, listener) {
+                if (typeof this.__events[event] !== "object") {
+                    this.__events[event] = [];
+                }
 
-        if (typeof this.__events[event] === 'object') {
-            idx = indexOf(this.__events[event], listener);
+                this.__events[event].push(listener);
+            }
+        },
+        removeListener: {
 
-            if (idx > -1) {
-                this.__events[event].splice(idx, 1);
+            /**
+             * Removes listener for the event.
+             *
+             * @param {string} event
+             * @param {function} listener
+             */
+
+            value: function removeListener(event, listener) {
+                var idx;
+
+                if (typeof this.__events[event] === "object") {
+                    idx = indexOf(this.__events[event], listener);
+
+                    if (idx > -1) {
+                        this.__events[event].splice(idx, 1);
+                    }
+                }
+            }
+        },
+        emit: {
+
+            /**
+             * Emits the event.
+             *
+             * @param {string} event
+             */
+
+            value: function emit(event) {
+                var i,
+                    listeners,
+                    length,
+                    args = [].slice.call(arguments, 1);
+
+                if (typeof this.__events[event] === "object") {
+                    listeners = this.__events[event].slice();
+                    length = listeners.length;
+
+                    for (i = 0; i < length; i++) {
+                        listeners[i].apply(this, args);
+                    }
+                }
             }
         }
-    }
+    });
 
-    /**
-     * Emits the event.
-     *
-     * @param {string} event
-     */
-    emit(event) {
-        var i, listeners, length, args = [].slice.call(arguments, 1);
-
-        if (typeof this.__events[event] === 'object') {
-            listeners = this.__events[event].slice();
-            length = listeners.length;
-
-            for (i = 0; i < length; i++) {
-                listeners[i].apply(this, args);
-            }
-        }
-    }
-}
+    return EventEmitter;
+})();
 
 module.exports = EventEmitter;
+
 },{}],7:[function(require,module,exports){
+"use strict";
+
 /*
  * Copyright (c) 2015, Fedor Nezhivoy
  * All rights reserved.
@@ -530,10 +599,10 @@ module.exports = EventEmitter;
  * LICENSE file in the root directory of this source tree.
  */
 
-var constants = require('./constants');
-var assign = require('object-assign');
-var Dispatcher = require('./Dispatcher');
-var Store = require('./Store');
+var constants = require("./constants");
+var assign = require("object-assign");
+var Dispatcher = require("./Dispatcher");
+var Store = require("./Store");
 
 var Relax = {
 
@@ -550,9 +619,9 @@ var Relax = {
      * @param {object} opts
      * @returns {Store}
      */
-    createStore: function (opts) {
+    createStore: function createStore(opts) {
         opts = opts || {};
-        return assign(new Store, opts);
+        return assign(new Store(), opts);
     },
 
     /**
@@ -561,69 +630,96 @@ var Relax = {
      * @param {object} opts
      * @returns {Dispatcher}
      */
-    createDispatcher: function (opts) {
+    createDispatcher: function createDispatcher(opts) {
         opts = opts || {};
-        return assign(new Dispatcher, opts);
+        return assign(new Dispatcher(), opts);
     }
 };
 
-if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
     module.exports = Relax;
-}
-else if (typeof define === 'function' && define.amd) {
+} else if (typeof define === "function" && define.amd) {
     define([], function () {
         return Relax;
     });
-}
-else {
+} else {
     window.Relax = Relax;
 }
+
 },{"./Dispatcher":5,"./Store":8,"./constants":9,"object-assign":4}],8:[function(require,module,exports){
-'use strict';
+"use strict";
 
-var constants = require('./constants');
-var EventEmitter = require('./EventEmitter');
+var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-class Store extends EventEmitter {
+var _get = function get(object, property, receiver) { var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc && desc.writable) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-    constructor() {
+var _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+
+var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+var constants = require("./constants");
+var EventEmitter = require("./EventEmitter");
+
+var Store = (function (_EventEmitter) {
+    function Store() {
+        _classCallCheck(this, Store);
+
+        _get(Object.getPrototypeOf(Store.prototype), "constructor", this).call(this);
         this.__dispatcherIndex = null;
     }
 
-    /**
-     * Triggers change event for the store.
-     */
-    emitChange() {
-        this.emit(constants.CHANGE_EVENT);
-    }
+    _inherits(Store, _EventEmitter);
 
-    /**
-     * Registers callback to be invoked on store changes.
-     *
-     * @param {function} callback
-     */
-    onChange(callback) {
-        this.on(constants.CHANGE_EVENT, callback);
-    }
+    _createClass(Store, {
+        emitChange: {
 
-    /**
-     * Unregisters particular callback.
-     *
-     * @param {function} callback
-     */
-    offChange(callback) {
-        this.removeListener(constants.CHANGE_EVENT, callback);
-    }
-}
+            /**
+             * Triggers change event for the store.
+             */
+
+            value: function emitChange() {
+                this.emit(constants.CHANGE_EVENT);
+            }
+        },
+        onChange: {
+
+            /**
+             * Registers callback to be invoked on store changes.
+             *
+             * @param {function} callback
+             */
+
+            value: function onChange(callback) {
+                this.on(constants.CHANGE_EVENT, callback);
+            }
+        },
+        offChange: {
+
+            /**
+             * Unregisters particular callback.
+             *
+             * @param {function} callback
+             */
+
+            value: function offChange(callback) {
+                this.removeListener(constants.CHANGE_EVENT, callback);
+            }
+        }
+    });
+
+    return Store;
+})(EventEmitter);
 
 module.exports = Store;
+
 },{"./EventEmitter":6,"./constants":9}],9:[function(require,module,exports){
-'use strict';
+"use strict";
 
 module.exports = {
-    CHANGE_EVENT: 'relax:change',
-    VIEW_ACTION: 'VIEW_ACTION',
-    SERVER_ACTION: 'SERVER_ACTION',
-    PLATFORM_ACTION: 'PLATFORM_ACTION'
+    CHANGE_EVENT: "relax:change",
+    VIEW_ACTION: "VIEW_ACTION",
+    SERVER_ACTION: "SERVER_ACTION",
+    PLATFORM_ACTION: "PLATFORM_ACTION"
 };
+
 },{}]},{},[7]);

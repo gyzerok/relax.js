@@ -6,6 +6,7 @@ var EventEmitter = require('./EventEmitter');
 class Store extends EventEmitter {
 
     constructor() {
+        super();
         this.__dispatcherIndex = null;
     }
 
