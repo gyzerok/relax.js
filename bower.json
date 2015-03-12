@@ -15,6 +15,13 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "src/__tests__"
+    "src",
+    "examples",
+    "docs",
+    "lib",
+    "tasks",
+    "Gruntfile.js",
+    "index.js",
+    "package.json"
   ]
 }
