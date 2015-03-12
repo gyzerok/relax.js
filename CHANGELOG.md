@@ -1,3 +1,7 @@
+## 0.2.1
+* Added Dispatcher.handleServiceAction method.
+* Some distribution fixes.
+
 ## 0.2.0
 * ECMAScript 2015 support.
 * [TodoMVC](https://github.com/gyzerok/relax.js/tree/master/examples/TodoMVC) example.
