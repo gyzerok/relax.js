@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = Relax.createDispatcher();
+module.exports = new Relax.Dispatcher;

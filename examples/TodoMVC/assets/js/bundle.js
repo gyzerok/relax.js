@@ -173,7 +173,7 @@ module.exports = TodoList;
 },{"./TodoItem.react":4}],6:[function(require,module,exports){
 "use strict";
 
-module.exports = Relax.createDispatcher();
+module.exports = new Relax.Dispatcher();
 
 },{}],7:[function(require,module,exports){
 (function (global){
