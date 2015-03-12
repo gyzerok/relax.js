@@ -42,6 +42,18 @@ class Dispatcher extends FBDispatcher {
     }
 
     /**
+     * Dispatches action as a service action.
+     *
+     * @param {object} action
+     */
+    handleServiceAction(action) {
+        this.dispatch({
+            source: constants.SERVICE_ACTION,
+            action: action
+        });
+    }
+
+    /**
      * Registers a Store to be notified about all the actions.
      *
      * @param {Store} store

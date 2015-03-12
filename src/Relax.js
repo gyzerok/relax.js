@@ -16,6 +16,7 @@ var Relax = {
     VIEW_ACTION: constants.VIEW_ACTION,
     SERVER_ACTION: constants.SERVER_ACTION,
     PLATFORM_ACTION: constants.PLATFORM_ACTION,
+    SERVICE_ACTION: constants.SERVICE_ACTION,
 
     Dispatcher: Dispatcher,
     Store: Store,

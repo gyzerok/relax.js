@@ -312,6 +312,14 @@ var Dispatcher = (function (_FBDispatcher) {
                 });
             }
         },
+        handleServiceAction: {
+            value: function handleServiceAction(action) {
+                this.dispatch({
+                    source: constants.SERVICE_ACTION,
+                    action: action
+                });
+            }
+        },
         subscribe: {
             value: function subscribe(store, actions) {
                 if (Object.keys(actions).length === 0) throw "You have to provide store for subscription";
@@ -459,6 +467,7 @@ var Relax = {
     VIEW_ACTION: constants.VIEW_ACTION,
     SERVER_ACTION: constants.SERVER_ACTION,
     PLATFORM_ACTION: constants.PLATFORM_ACTION,
+    SERVICE_ACTION: constants.SERVICE_ACTION,
 
     Dispatcher: Dispatcher,
     Store: Store,
@@ -579,7 +588,8 @@ module.exports = {
     CHANGE_EVENT: "relax:change",
     VIEW_ACTION: "VIEW_ACTION",
     SERVER_ACTION: "SERVER_ACTION",
-    PLATFORM_ACTION: "PLATFORM_ACTION"
+    PLATFORM_ACTION: "PLATFORM_ACTION",
+    SERVICE_ACTION: "SERVICE_ACTION"
 };
 
 },{}],14:[function(require,module,exports){

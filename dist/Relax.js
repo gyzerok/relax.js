@@ -414,6 +414,21 @@ var Dispatcher = (function (_FBDispatcher) {
                 });
             }
         },
+        handleServiceAction: {
+
+            /**
+             * Dispatches action as a service action.
+             *
+             * @param {object} action
+             */
+
+            value: function handleServiceAction(action) {
+                this.dispatch({
+                    source: constants.SERVICE_ACTION,
+                    action: action
+                });
+            }
+        },
         subscribe: {
 
             /**
@@ -609,6 +624,7 @@ var Relax = {
     VIEW_ACTION: constants.VIEW_ACTION,
     SERVER_ACTION: constants.SERVER_ACTION,
     PLATFORM_ACTION: constants.PLATFORM_ACTION,
+    SERVICE_ACTION: constants.SERVICE_ACTION,
 
     Dispatcher: Dispatcher,
     Store: Store,
@@ -719,7 +735,8 @@ module.exports = {
     CHANGE_EVENT: "relax:change",
     VIEW_ACTION: "VIEW_ACTION",
     SERVER_ACTION: "SERVER_ACTION",
-    PLATFORM_ACTION: "PLATFORM_ACTION"
+    PLATFORM_ACTION: "PLATFORM_ACTION",
+    SERVICE_ACTION: "SERVICE_ACTION"
 };
 
 },{}]},{},[7]);
