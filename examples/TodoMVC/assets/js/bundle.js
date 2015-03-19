@@ -275,6 +275,7 @@ var _classCallCheck = function _classCallCheck(instance, Constructor) {
 
 var constants = require("./constants");
 var FBDispatcher = require("flux").Dispatcher;
+var Store = require("./Store");
 
 var Dispatcher = (function (_FBDispatcher) {
     function Dispatcher() {
@@ -355,7 +356,7 @@ var Dispatcher = (function (_FBDispatcher) {
 
 module.exports = Dispatcher;
 
-},{"./constants":13,"flux":14}],10:[function(require,module,exports){
+},{"./Store":12,"./constants":13,"flux":14}],10:[function(require,module,exports){
 "use strict";
 
 var _createClass = (function () {
@@ -374,31 +375,25 @@ var _classCallCheck = function _classCallCheck(instance, Constructor) {
     }
 };
 
-var indexOf;
+function indexOf(haystack, needle) {
+    if (!haystack) {
+        return -1;
+    }var i = 0;
+    var length = haystack.length;
+    var idx = -1;
+    var found = false;
 
-if (typeof Array.prototype.indexOf === "function") {
-    indexOf = function (haystack, needle) {
-        return haystack.indexOf(needle);
-    };
-} else {
-    indexOf = function (haystack, needle) {
-        var i = 0,
-            length = haystack.length,
-            idx = -1,
-            found = false;
-
-        while (i < length && !found) {
-            if (haystack[i] === needle) {
-                idx = i;
-                found = true;
-            }
-
-            i++;
+    while (i < length && !found) {
+        if (haystack[i] === needle) {
+            idx = i;
+            found = true;
         }
 
-        return idx;
-    };
-}
+        i++;
+    }
+
+    return idx;
+};
 
 var EventEmitter = (function () {
     function EventEmitter() {
@@ -553,7 +548,6 @@ var Store = (function (_EventEmitter) {
         _classCallCheck(this, Store);
 
         _get(Object.getPrototypeOf(Store.prototype), "constructor", this).call(this);
-        this.__dispatcherIndex = null;
     }
 
     _inherits(Store, _EventEmitter);
