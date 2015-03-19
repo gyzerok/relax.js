@@ -1,7 +1,13 @@
-'use strict';
+/* @flow */
+
+type Action = {
+    actionType: string;
+    data: mixed;
+};
 
 var constants = require('./constants');
 var FBDispatcher = require('flux').Dispatcher;
+var Store = require('./Store');
 
 class Dispatcher extends FBDispatcher {
 
@@ -10,7 +16,7 @@ class Dispatcher extends FBDispatcher {
      *
      * @param {object} action
      */
-    handleViewAction(action) {
+    handleViewAction(action: Action): void {
         this.dispatch({
             source: constants.VIEW_ACTION,
             action: action
@@ -22,7 +28,7 @@ class Dispatcher extends FBDispatcher {
      *
      * @param {object} action
      */
-    handleServerAction(action) {
+    handleServerAction(action: Action): void {
         this.dispatch({
             source: constants.SERVER_ACTION,
             action: action
@@ -34,7 +40,7 @@ class Dispatcher extends FBDispatcher {
      *
      * @param {object} action
      */
-    handlePlatformAction(action) {
+    handlePlatformAction(action: Action): void {
         this.dispatch({
             source: constants.PLATFORM_ACTION,
             action: action
@@ -46,7 +52,7 @@ class Dispatcher extends FBDispatcher {
      *
      * @param {object} action
      */
-    handleServiceAction(action) {
+    handleServiceAction(action: Action): void {
         this.dispatch({
             source: constants.SERVICE_ACTION,
             action: action
@@ -59,7 +65,7 @@ class Dispatcher extends FBDispatcher {
      * @param {Store} store
      * @param {Map<string, function>} actions
      */
-    subscribe(store, actions) {
+    subscribe(store: Store, actions: Object<string, Function>): void {
         if (Object.keys(actions).length === 0) throw 'You have to provide store for subscription';
 
         store.__dispatcherIndex = this.register(function (payload) {
@@ -78,7 +84,7 @@ class Dispatcher extends FBDispatcher {
      *
      * @param {Store} store
      */
-    unsubscribe(store) {
+    unsubscribe(store: Store) {
         this.unregister(store.__dispatcherIndex);
     }
 
@@ -89,7 +95,7 @@ class Dispatcher extends FBDispatcher {
      *
      * @param {array<Store>} stores
      */
-    await(stores) {
+    await(stores: Array<Store>): void {
         var ids = stores.map(function (store) {
             return store.__dispatcherIndex;
         });

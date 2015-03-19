@@ -4,7 +4,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean',
-        'browserify:app',
+        'browserify:lib',
         'babel',
         'uglify',
         'watch'

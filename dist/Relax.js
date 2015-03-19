@@ -356,6 +356,7 @@ var _classCallCheck = function (instance, Constructor) { if (!(instance instance
 
 var constants = require("./constants");
 var FBDispatcher = require("flux").Dispatcher;
+var Store = require("./Store");
 
 var Dispatcher = (function (_FBDispatcher) {
     function Dispatcher() {
@@ -487,44 +488,37 @@ var Dispatcher = (function (_FBDispatcher) {
 })(FBDispatcher);
 
 module.exports = Dispatcher;
+/* @flow */
 
-},{"./constants":9,"flux":1}],6:[function(require,module,exports){
+},{"./Store":8,"./constants":9,"flux":1}],6:[function(require,module,exports){
 "use strict";
 
 var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-/**
- * This source code was originally copied from https://gist.github.com/mudge/5830382
- */
+/* @flow */
 
 /* Polyfill indexOf. */
-var indexOf;
+function indexOf(haystack, needle) {
+    if (!haystack) {
+        return -1;
+    }var i = 0;
+    var length = haystack.length;
+    var idx = -1;
+    var found = false;
 
-if (typeof Array.prototype.indexOf === "function") {
-    indexOf = function (haystack, needle) {
-        return haystack.indexOf(needle);
-    };
-} else {
-    indexOf = function (haystack, needle) {
-        var i = 0,
-            length = haystack.length,
-            idx = -1,
-            found = false;
-
-        while (i < length && !found) {
-            if (haystack[i] === needle) {
-                idx = i;
-                found = true;
-            }
-
-            i++;
+    while (i < length && !found) {
+        if (haystack[i] === needle) {
+            idx = i;
+            found = true;
         }
 
-        return idx;
-    };
-}
+        i++;
+    }
+
+    return idx;
+};
 
 var EventEmitter = (function () {
     function EventEmitter() {
@@ -614,6 +608,8 @@ module.exports = EventEmitter;
  * LICENSE file in the root directory of this source tree.
  */
 
+/* @flow */
+
 var constants = require("./constants");
 var assign = require("object-assign");
 var Dispatcher = require("./Dispatcher");
@@ -673,6 +669,8 @@ var _inherits = function (subClass, superClass) { if (typeof superClass !== "fun
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
+/* @flow */
+
 var constants = require("./constants");
 var EventEmitter = require("./EventEmitter");
 
@@ -681,7 +679,6 @@ var Store = (function (_EventEmitter) {
         _classCallCheck(this, Store);
 
         _get(Object.getPrototypeOf(Store.prototype), "constructor", this).call(this);
-        this.__dispatcherIndex = null;
     }
 
     _inherits(Store, _EventEmitter);

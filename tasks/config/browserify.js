@@ -3,7 +3,7 @@
 module.exports = function (grunt) {
 
     grunt.config.set('browserify', {
-        app: {
+        lib: {
             options: {
                 debug: false,
                 transform: [

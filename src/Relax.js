@@ -6,6 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+ /* @flow */
+
 var constants = require('./constants');
 var assign = require('object-assign');
 var Dispatcher = require('./Dispatcher');
@@ -27,7 +29,7 @@ var Relax = {
      * @param {object} opts
      * @returns {Store}
      */
-    createStore: function (opts) {
+    createStore: function (opts: Object): Store {
         opts = opts || {};
         return assign(new Store, opts);
     },
@@ -38,7 +40,7 @@ var Relax = {
      * @param {object} opts
      * @returns {Dispatcher}
      */
-    createDispatcher: function (opts) {
+    createDispatcher: function (opts: Object): Dispatcher {
         opts = opts || {};
         return assign(new Dispatcher, opts);
     }

@@ -1,32 +1,27 @@
-/**
- * This source code was originally copied from https://gist.github.com/mudge/5830382
- */
+/* @flow */
 
 /* Polyfill indexOf. */
-var indexOf;
+function indexOf(haystack: ?Array<Function>, needle: Function): number {
+    if (!haystack) return -1;
+    var i = 0;
+    var length = haystack.length;
+    var idx = -1;
+    var found = false;
 
-if (typeof Array.prototype.indexOf === 'function') {
-    indexOf = function (haystack, needle) {
-        return haystack.indexOf(needle);
-    };
-} else {
-    indexOf = function (haystack, needle) {
-        var i = 0, length = haystack.length, idx = -1, found = false;
-
-        while (i < length && !found) {
-            if (haystack[i] === needle) {
-                idx = i;
-                found = true;
-            }
-
-            i++;
+    while (i < length && !found) {
+        if (haystack[i] === needle) {
+            idx = i;
+            found = true;
         }
 
-        return idx;
-    };
-}
+        i++;
+    }
+
+    return idx;
+};
 
 class EventEmitter {
+    __events: Object<string, Array<Function>>;
 
     constructor() {
         this.__events = {};
@@ -38,7 +33,7 @@ class EventEmitter {
      * @param {string} event
      * @param {function} listener
      */
-    on(event, listener) {
+    on(event: string, listener: Function): void {
         if (typeof this.__events[event] !== 'object') {
             this.__events[event] = [];
         }
@@ -52,7 +47,7 @@ class EventEmitter {
      * @param {string} event
      * @param {function} listener
      */
-    removeListener(event, listener) {
+    removeListener(event: string, listener: Function) {
         var idx;
 
         if (typeof this.__events[event] === 'object') {
@@ -69,7 +64,7 @@ class EventEmitter {
      *
      * @param {string} event
      */
-    emit(event) {
+    emit(event: string) {
         var i, listeners, length, args = [].slice.call(arguments, 1);
 
         if (typeof this.__events[event] === 'object') {
