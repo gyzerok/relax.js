@@ -1,6 +1,6 @@
 ## 0.2.2
-* Added flow typecheker
-* Resolved some potential errors
+* Added flow typecheker.
+* Resolved some potential errors.
 
 ## 0.2.1
 * Added Dispatcher.handleServiceAction method.
