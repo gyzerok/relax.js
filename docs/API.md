@@ -1,4 +1,4 @@
-Relax API
+Relax API (under development)
 =========
 
 ## Actions (ActionCreators)
