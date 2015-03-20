@@ -29,9 +29,6 @@ class EventEmitter {
 
     /**
      * Registers listener for the event.
-     *
-     * @param {string} event
-     * @param {function} listener
      */
     on(event: string, listener: Function): void {
         if (typeof this.__events[event] !== 'object') {
@@ -43,9 +40,6 @@ class EventEmitter {
 
     /**
      * Removes listener for the event.
-     *
-     * @param {string} event
-     * @param {function} listener
      */
     removeListener(event: string, listener: Function) {
         var idx;
@@ -61,8 +55,6 @@ class EventEmitter {
 
     /**
      * Emits the event.
-     *
-     * @param {string} event
      */
     emit(event: string) {
         var i, listeners, length, args = [].slice.call(arguments, 1);

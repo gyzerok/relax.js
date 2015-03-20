@@ -13,6 +13,8 @@ var assign = require('object-assign');
 var Dispatcher = require('./Dispatcher');
 var Store = require('./Store');
 
+Object.assign = Object.assign || assign;
+
 var Relax = {
 
     VIEW_ACTION: constants.VIEW_ACTION,
@@ -25,24 +27,16 @@ var Relax = {
 
     /**
      * Creates new singleton store.
-     *
-     * @param {object} opts
-     * @returns {Store}
      */
-    createStore: function (opts: Object): Store {
-        opts = opts || {};
-        return assign(new Store, opts);
+    createStore(opts: Object = {}): Store {
+        return Object.assign(new Store, opts);
     },
 
     /**
      * Creates new singleton dispatcher
-     *
-     * @param {object} opts
-     * @returns {Dispatcher}
      */
-    createDispatcher: function (opts: Object): Dispatcher {
-        opts = opts || {};
-        return assign(new Dispatcher, opts);
+    createDispatcher(opts: Object = {}): Dispatcher {
+        return Object.assign(new Dispatcher, opts);
     }
 };
 

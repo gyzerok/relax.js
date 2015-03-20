@@ -19,19 +19,15 @@ class Store extends EventEmitter {
 
     /**
      * Registers callback to be invoked on store changes.
-     *
-     * @param {function} callback
      */
-    onChange(callback: Function): void {
+    onChange(callback: () => void): void {
         this.on(constants.CHANGE_EVENT, callback);
     }
 
     /**
      * Unregisters particular callback.
-     *
-     * @param {function} callback
      */
-    offChange(callback: Function): void {
+    offChange(callback: () => void): void {
         this.removeListener(constants.CHANGE_EVENT, callback);
     }
 }

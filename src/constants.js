@@ -1,4 +1,4 @@
-'use strict';
+/* @flow */
 
 module.exports = {
     CHANGE_EVENT: 'relax:change',

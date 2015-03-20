@@ -374,8 +374,6 @@ var Dispatcher = (function (_FBDispatcher) {
 
             /**
              * Dispatches action as a view action.
-             *
-             * @param {object} action
              */
 
             value: function handleViewAction(action) {
@@ -389,8 +387,6 @@ var Dispatcher = (function (_FBDispatcher) {
 
             /**
              * Dispatches action as a server action.
-             *
-             * @param {object} action
              */
 
             value: function handleServerAction(action) {
@@ -404,8 +400,6 @@ var Dispatcher = (function (_FBDispatcher) {
 
             /**
              * Dispatches action as a platform action.
-             *
-             * @param {object} action
              */
 
             value: function handlePlatformAction(action) {
@@ -419,8 +413,6 @@ var Dispatcher = (function (_FBDispatcher) {
 
             /**
              * Dispatches action as a service action.
-             *
-             * @param {object} action
              */
 
             value: function handleServiceAction(action) {
@@ -434,9 +426,6 @@ var Dispatcher = (function (_FBDispatcher) {
 
             /**
              * Registers a Store to be notified about all the actions.
-             *
-             * @param {Store} store
-             * @param {Map<string, function>} actions
              */
 
             value: function subscribe(store, actions) {
@@ -457,8 +446,6 @@ var Dispatcher = (function (_FBDispatcher) {
 
             /**
              * Removes a callback based on its token.
-             *
-             * @param {Store} store
              */
 
             value: function unsubscribe(store) {
@@ -471,8 +458,6 @@ var Dispatcher = (function (_FBDispatcher) {
              * Waits for the callbacks specified to be invoked before continuing execution
              * of the current callback. This method should only be used by a callback in
              * response to a dispatched payload.
-             *
-             * @param {array<Store>} stores
              */
 
             value: function await(stores) {
@@ -532,9 +517,6 @@ var EventEmitter = (function () {
 
             /**
              * Registers listener for the event.
-             *
-             * @param {string} event
-             * @param {function} listener
              */
 
             value: function on(event, listener) {
@@ -549,9 +531,6 @@ var EventEmitter = (function () {
 
             /**
              * Removes listener for the event.
-             *
-             * @param {string} event
-             * @param {function} listener
              */
 
             value: function removeListener(event, listener) {
@@ -570,8 +549,6 @@ var EventEmitter = (function () {
 
             /**
              * Emits the event.
-             *
-             * @param {string} event
              */
 
             value: function emit(event) {
@@ -615,6 +592,8 @@ var assign = require("object-assign");
 var Dispatcher = require("./Dispatcher");
 var Store = require("./Store");
 
+Object.assign = Object.assign || assign;
+
 var Relax = {
 
     VIEW_ACTION: constants.VIEW_ACTION,
@@ -627,24 +606,22 @@ var Relax = {
 
     /**
      * Creates new singleton store.
-     *
-     * @param {object} opts
-     * @returns {Store}
      */
-    createStore: function createStore(opts) {
-        opts = opts || {};
-        return assign(new Store(), opts);
+    createStore: function createStore() {
+        var opts = arguments[0] === undefined ? {} : arguments[0];
+
+        //opts = opts || {};
+        return Object.assign(new Store(), opts);
     },
 
     /**
      * Creates new singleton dispatcher
-     *
-     * @param {object} opts
-     * @returns {Dispatcher}
      */
-    createDispatcher: function createDispatcher(opts) {
-        opts = opts || {};
-        return assign(new Dispatcher(), opts);
+    createDispatcher: function createDispatcher() {
+        var opts = arguments[0] === undefined ? {} : arguments[0];
+
+        //opts = opts || {};
+        return Object.assign(new Dispatcher(), opts);
     }
 };
 
@@ -698,8 +675,6 @@ var Store = (function (_EventEmitter) {
 
             /**
              * Registers callback to be invoked on store changes.
-             *
-             * @param {function} callback
              */
 
             value: function onChange(callback) {
@@ -710,8 +685,6 @@ var Store = (function (_EventEmitter) {
 
             /**
              * Unregisters particular callback.
-             *
-             * @param {function} callback
              */
 
             value: function offChange(callback) {
